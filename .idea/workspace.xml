@@ -1,7 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/out/production/Room_and_Doom/border.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Room_and_Doom/everturn.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Room_and_Doom/mageattack.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Room_and_Doom/map/Cell.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Room_and_Doom/map/Grid.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Room_and_Doom/map/MovingObstacle.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Room_and_Doom/map/NonMovingObstacle.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Room_and_Doom/map/ObjectBase.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Room_and_Doom/plasmaball.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Room_and_Doom/sample/Bullet.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Room_and_Doom/sample/Controller.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Room_and_Doom/sample/Enemy.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Room_and_Doom/sample/HealthBars.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Room_and_Doom/sample/Input.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Room_and_Doom/sample/Items/Chest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Room_and_Doom/sample/Items/Head.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Room_and_Doom/sample/Items/Item.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Room_and_Doom/sample/Items/Necklace.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Room_and_Doom/sample/Items/Ring.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Room_and_Doom/sample/Items/Shoes.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Room_and_Doom/sample/Items/Sword.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Room_and_Doom/sample/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Room_and_Doom/sample/Player.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Room_and_Doom/sample/Settings.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Room_and_Doom/sample/SpriteAnimation.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Room_and_Doom/sample/SpriteBase.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Room_and_Doom/sample/Treasure.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Room_and_Doom/sample/sample.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Room_and_Doom/sp_bar_health_strip12.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Room_and_Doom/spritesheet.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Room_and_Doom/treasure.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Room_and_Doom/treasureOpened.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/border.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/everturn.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/mageattack.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/plasmaball.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sp_bar_health_strip12.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/spritesheet.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/treasure.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/treasureOpened.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -73,7 +115,9 @@
     <option name="height" value="876" />
   </component>
   <component name="ProjectId" id="1W7KUc2XGvwG7ry5ua0vN7jOqxr" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectReloadState">
     <option name="STATE" value="0" />
   </component>
@@ -83,6 +127,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="GoToFile.includeJavaFiles" value="false" />
@@ -208,6 +253,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
   </component>
   <component name="WindowStateProjectService">
