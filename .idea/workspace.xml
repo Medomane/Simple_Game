@@ -42,6 +42,7 @@
       <change afterPath="$PROJECT_DIR$/resources/spritesheet.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/resources/treasure.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/resources/treasureOpened.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
