@@ -34,7 +34,7 @@ public class Player extends SpriteBase {
         attackAnimation = new SpriteAnimation(imageView, Duration.millis(500), 8, 8, 0, 0, 64, 64);
         animation.setCycleCount(Animation.INDEFINITE);
         attackAnimation.setCycleCount(1);
-        attackAnimation.setOnFinished(e -> Input.setIsAttacking(false)); //Everytime when cycle finished it set's the value 0
+        attackAnimation.setOnFinished(e -> Input.setIsAttacking(false));
 
         rectangle.setHeight(imageView.getViewport().getHeight());
         rectangle.setWidth(imageView.getViewport().getWidth());

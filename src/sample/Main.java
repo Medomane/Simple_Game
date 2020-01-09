@@ -142,7 +142,7 @@ public class Main extends Application {
                     movingObstacles.forEach(mv->mv.updateUI());
 
                     // for enemy's attack (it shouldn't be called every frame so we should restrict it
-                    if(now-lastUpdate >= Settings.attackIntervall * 1000000){
+                    if(now-lastUpdate >= Settings.attackInterval * 1000000){
                         enemies.forEach(Enemy -> createBullet());
                         lastUpdate=now;
                     }
