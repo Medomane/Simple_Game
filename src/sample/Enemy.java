@@ -14,7 +14,7 @@ public class Enemy extends SpriteBase {
         this.imageView.setViewport(new Rectangle2D(0, 0, 36, 32));
         rectangle.setHeight(imageView.getViewport().getHeight());
         rectangle.setWidth(imageView.getViewport().getWidth());
-        attackAnimation = new SpriteAnimation(imageView, Duration.millis(1000), 6, 6, 0, 0, 36, 37.5);
+        attackAnimation = new SpriteAnimation(imageView, Duration.millis(200), 6, 6, 0, 0, 36, 37.5);
     }
 
     @Override

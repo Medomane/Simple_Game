@@ -2,9 +2,15 @@ package sample;
 
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
@@ -40,8 +46,6 @@ public class Main extends Application {
             {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
             {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}
     };
-    int playerSpeed = 2;
-    int playerDamage =100;
 
 
 
@@ -53,6 +57,8 @@ public class Main extends Application {
     Bullet bullet;
     Bomb bomb;
 
+    BorderPane troot;
+
 
 
     Image playerImage;
@@ -63,37 +69,28 @@ public class Main extends Application {
 
     AnimationTimer gameLoop;
 
-
-
-
-
-
     //Creating lists
     List<Player> players = new ArrayList<>();
     List<Enemy> enemies = new ArrayList<>();
     List<Cell> Cells = new ArrayList<>();
     List<Bullet> bullets = new ArrayList<>();
     List<Bomb> bombs = new ArrayList<>();
-    //List<Treasure> treasures = new ArrayList<>();
     List<MovingObstacle> movingObstacles=new ArrayList<>();
-
-
-    /*Here collision text we will change it later and
-    Make it health bar and whenever we attack an enemy
-    it's health bar will be decrease if it attacks vice versa*/
 
     Text collisionText = new Text();
     boolean player_EnemyCollision = false;
-    boolean player_MovingObstacleCollision=false;
     boolean player_MapObstacleCollision=false;
     boolean attackCollision = false;
-    boolean cellCollision = false;
     boolean bulletCollision = false;
+    HBox info ;
 
     @Override
     public void start(Stage primaryStage) {
         this.primaryStage=primaryStage;
+
+        troot = new BorderPane();
         root = new Group();
+
 
         // create layers
         playfieldLayout = new Pane();
@@ -101,8 +98,11 @@ public class Main extends Application {
 
         root.getChildren().add(playfieldLayout);
         root.getChildren().add(scoreLayout);
+        troot.setCenter(root);
 
-        scene = new Scene(root, Settings.SCENE_WIDTH, Settings.SCENE_HEIGHT);
+        getInfo();
+
+        scene = new Scene(troot, Settings.SCENE_WIDTH, Settings.SCENE_HEIGHT);
         primaryStage.setTitle("Game");
         primaryStage.setScene(scene);
         primaryStage.show();
@@ -112,7 +112,6 @@ public class Main extends Application {
         createPlayers();
         createEnemy();
 
-
         gameLoop = new AnimationTimer() {
             private long lastUpdate =0;
 
@@ -121,14 +120,10 @@ public class Main extends Application {
             public void handle(long now) {
                 //input
                 if(player.isAlive()){
-                    players.forEach(sprite -> sprite.processInput());
+                    players.forEach(Player::processInput);
                     // movement
                     players.forEach(sprite -> sprite.move());
 
-                    if(player_MovingObstacleCollision){
-                        movingObstacles.forEach(movingObstacle->movingObstacle.processInput());
-                        movingObstacles.forEach(movingObstacle->movingObstacle.move());
-                    }
                     // check collisions
                     player_CheckCollisionWithEnemy();
                     player_enemyBlock();
@@ -147,7 +142,7 @@ public class Main extends Application {
                     movingObstacles.forEach(mv->mv.updateUI());
 
                     // for enemy's attack (it shouldn't be called every frame so we should restrict it
-                    if(now-lastUpdate >= 1000000000){
+                    if(now-lastUpdate >= Settings.attackIntervall * 1000000){
                         enemies.forEach(Enemy -> createBullet());
                         lastUpdate=now;
                     }
@@ -170,7 +165,6 @@ public class Main extends Application {
 
         };
         gameLoop.start();
-
     }
     private void createMap(){
         map=new Grid(gameMap);
@@ -183,8 +177,40 @@ public class Main extends Application {
         borderImage = new Image(getClass().getResource("/border.jpg").toExternalForm());
         bombImage = new Image(getClass().getResource("/explosion.png").toExternalForm());
     }
-
-    //Collisions
+    HBox getInfo(){
+        info = new HBox();
+        info.setPadding(new Insets(5));
+        info.setStyle("-fx-background-color:orange;");
+        info.setAlignment(Pos.CENTER_RIGHT);
+        ImageView heart1= new ImageView(new Image(getClass().getResource("/heart.png").toExternalForm()));
+        ImageView heart2= new ImageView(new Image(getClass().getResource("/heart.png").toExternalForm()));
+        ImageView heart3= new ImageView(new Image(getClass().getResource("/heart.png").toExternalForm()));
+        heart1.setFitHeight(20);
+        heart2.setFitHeight(20);
+        heart3.setFitHeight(20);
+        heart1.setFitWidth(30);
+        heart2.setFitWidth(30);
+        heart3.setFitWidth(30);
+        info.getChildren().add(heart1);
+        info.getChildren().add(heart2);
+        info.getChildren().add(heart3);
+        info.setMaxHeight(30);
+        info.setMinHeight(30);
+        troot.setTop(info);
+        return info;
+    }
+    public void restart(){
+        info.getChildren().clear();
+        info = getInfo();
+        gameLoop.stop();
+        if(enemy.getHealth() <= 0){
+            enemies.clear();
+            createEnemy();
+        }
+        player.setHealth(100);
+        enemy.setHealth(100);
+        gameLoop.start();
+    }
     private void player_CheckCollisionWithEnemy() {
         player_EnemyCollision = false;
 
@@ -212,7 +238,7 @@ public class Main extends Application {
 
         for (Player player : players) {
             for (Cell cell:map.mapArraylist) {
-                if (cell.getType()==1&&player.collidesWithCell(cell)) {
+                if (cell.getType()==1 && player.collidesWithCell(cell)) {
                     player_MapObstacleCollision = true;
                 }
             }
@@ -267,7 +293,7 @@ public class Main extends Application {
 
         Image image = playerImage;
         //Setting players' qualities
-        player = new Player(playfieldLayout, image, 100, playerDamage, playerSpeed, input);
+        player = new Player(playfieldLayout, image, 100, 10, Settings.playerSpeed, input);
         //Add all players in a list so it will be easier to work
         players.add(player);
 
@@ -303,8 +329,15 @@ public class Main extends Application {
         //enemy.attackAnimation(player);
         bomb.bomb_Animation.play();
         bomb.bomb_Animation.setOnFinished(e->{
-            //System.out.println("salam");
-            gameLoop.start();
+            if(info.getChildren().size() > 0) {
+                info.getChildren().remove(info.getChildren().size()-1);
+                gameLoop.start();
+            }
+            if(info.getChildren().size() == 0){
+                gameLoop.stop();
+                GameOver go = new GameOver(primaryStage,this);
+                go.Init();
+            }
         });
     }
 
@@ -312,14 +345,9 @@ public class Main extends Application {
         Iterator<? extends SpriteBase> iterator = spriteList.iterator();
         while (iterator.hasNext()) {
             SpriteBase sprite = iterator.next();
-
             if (sprite.isRemovable()) {
-
-                // remove from layer
                 sprite.removeFromLayer();
                 sprite.layer.getChildren().remove(sprite.healthBar.imageView);
-
-                // remove from list
                 iterator.remove();
             }
         }
@@ -329,7 +357,6 @@ public class Main extends Application {
         if (attackCollision && input.isAttack() && !Input.getIsAttacking()) {
             Input.setIsAttacking(true);
             enemy.getDamagedBy(player);
-
         } else {
             collisionText.setText("");
         }

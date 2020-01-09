@@ -50,7 +50,7 @@ public class Bullet extends Circle {
 
     public PathTransition pathTransitionBullets(Bullet bullet){
         Path path = createPathBullets(attacker.rectangle.getX()+attacker.rectangle.getWidth()/2,attacker.rectangle.getY()+attacker.rectangle.getHeight()/2);
-        PathTransition pt2 = new PathTransition(Duration.millis(500),path,bullet_Node);
+        PathTransition pt2 = new PathTransition(Duration.millis(Settings.attackSpeed),path,bullet_Node);
         pt2.setOnFinished(event -> {
             bullet.layer.getChildren().removeAll(bulletImageView, bullet_Node);
             bullet.BulletGone = true;
