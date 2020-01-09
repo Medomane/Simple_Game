@@ -65,7 +65,6 @@ public abstract class SpriteBase extends Pane {
 
     public void addToLayer() {
         this.layer.getChildren().addAll(imageView);
-
     }
 
     public void removeFromLayer() {
@@ -139,8 +138,7 @@ public abstract class SpriteBase extends Pane {
 
     public void move() {
 
-        if (!canMove)
-            return;
+        if (!canMove) return;
 
         rectangle.setX(rectangle.getX()+dx);
         rectangle.setY(rectangle.getY()+dy);

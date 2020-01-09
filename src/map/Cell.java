@@ -27,7 +27,7 @@ public class Cell {
         this.type = type;
 
         rect=new Rectangle(x,y,width,height);
-        rect.setFill(Color.PINK);//DEFAULT RECTANGLE
+        rect.setFill(Color.DARKGREEN);
 
 
 
@@ -37,26 +37,15 @@ public class Cell {
     }
 
     public Rectangle getRect(){
-
-
-        if (type == Settings.BORDER_CONSTANT){//1 represents there are obstacles
-
+        if (type == Settings.BORDER_CONSTANT){
             nonMv=new NonMovingObstacle(x,y,width,height,borderImage);
-
             this.rect=nonMv.getRect();
-
         }
         else if (type == Settings.TILES_CONSTANT){
 			rect=new Rectangle(x,y,width,height);
-			rect.setFill(Color.DARKGREEN);
-
-
-            /*nonMv=new NonMovingObject(x,y,width,height,groundImage);
-            this.rect=nonMv.getRect();*/
-
+			rect.setFill(new ImagePattern(new Image(getClass().getResource("/mountain.png").toExternalForm())));
         }
         return rect;
-
     }
 
     public void UpdateUI(){

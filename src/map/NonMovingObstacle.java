@@ -15,10 +15,8 @@ public class NonMovingObstacle {
         this.width=width;
         this.height=height;
         this.image=image;
-
         rect=new Rectangle(x,y,width,height);
         rect.setFill(new ImagePattern(image));
-
     }
 
     public double getX() {

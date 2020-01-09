@@ -31,7 +31,7 @@ public class Bullet extends Circle {
         this.bulletImageView = new ImageView(bullet_Image);
 
         //For bullet's animation
-        bullet_Animation = new SpriteAnimation(bulletImageView, Duration.millis(600), 4, 4, 0, 0, 64, 64);
+        bullet_Animation = new SpriteAnimation(bulletImageView, Duration.millis(600), 8, 8, 0, 0, 64, 64);
         bullet_Animation.setCycleCount(Animation.INDEFINITE);
         bulletImageView.relocate(bullet_Node.getBoundsInParent().getMinX(),bullet_Node.getBoundsInParent().getMinY());
 
@@ -49,13 +49,13 @@ public class Bullet extends Circle {
     }
 
     public PathTransition pathTransitionBullets(Bullet bullet){
-            Path path = createPathBullets(attacker.rectangle.getX()+attacker.rectangle.getWidth()/2,attacker.rectangle.getY()+attacker.rectangle.getHeight()/2);
-            PathTransition pt2 = new PathTransition(Duration.millis(2000),path,bullet_Node);
-            pt2.setOnFinished(event -> {
-                bullet.layer.getChildren().removeAll(bulletImageView, bullet_Node);
-                bullet.BulletGone = true;
-            });
-            return pt2;
+        Path path = createPathBullets(attacker.rectangle.getX()+attacker.rectangle.getWidth()/2,attacker.rectangle.getY()+attacker.rectangle.getHeight()/2);
+        PathTransition pt2 = new PathTransition(Duration.millis(500),path,bullet_Node);
+        pt2.setOnFinished(event -> {
+            bullet.layer.getChildren().removeAll(bulletImageView, bullet_Node);
+            bullet.BulletGone = true;
+        });
+        return pt2;
     }
     public boolean checkBulletCollision(Player player){
         if(!BulletGone)

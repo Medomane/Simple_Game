@@ -40,8 +40,6 @@ public class HealthBars {
         if(currentHealth/maxHealth <= 0.2 && currentHealth/maxHealth >0.1) imageView.setViewport(new Rectangle2D(192, 0, 64, 16));
         if(currentHealth/maxHealth <= 0.1 && currentHealth/maxHealth >0) imageView.setViewport(new Rectangle2D(128, 0, 64, 16));
         if(currentHealth/maxHealth <= 0) imageView.setViewport(new Rectangle2D(64, 0, 64, 16));
-
-
     }
 
 }

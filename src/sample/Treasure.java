@@ -4,7 +4,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 
-    public class Treasure {
+/*    public class Treasure {
     Pane layer;
     Image treasure_image;
     Image treasure_openedImage;
@@ -34,4 +34,4 @@ import javafx.scene.layout.Pane;
         layer.getChildren().add(treasure_imageView);
 
     }
-}
+}*/

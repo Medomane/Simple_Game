@@ -9,15 +9,8 @@ import java.util.BitSet;
 
 public class Input {
 
-    /**
-     * Bitset which registers if any {@link KeyCode} keeps being pressed or if it is released.
-     */
     private BitSet keyboardBitSet = new BitSet();
 
-    // -------------------------------------------------
-    // default key codes
-    // will vary when you let the user customize the key codes or when you add support for a 2nd player
-    // -------------------------------------------------
     private KeyCode attackKey = KeyCode.SPACE;
     private KeyCode upKey = KeyCode.UP;
     private KeyCode downKey = KeyCode.DOWN;
@@ -46,26 +39,14 @@ public class Input {
 
     }
 
-    /**
-     * "Key Pressed" handler for all input events: register pressed key in the bitset
-     */
     private EventHandler<KeyEvent> keyPressedEventHandler = event -> {
+        keyboardBitSet.set(event.getCode().ordinal(), true);
+    };
 
-            // register key down
-            keyboardBitSet.set(event.getCode().ordinal(), true);
-
-        };
-
-
-    /**
-     * "Key Released" handler for all input events: unregister released key in the bitset
-     */
     private EventHandler<KeyEvent> keyReleasedEventHandler = event ->  {
-
-            // register key up
-            keyboardBitSet.set(event.getCode().ordinal(), false);
-            Player.animation.stop();
-        };
+        keyboardBitSet.set(event.getCode().ordinal(), false);
+        Player.animation.stop();
+    };
 
     public static boolean getIsAttacking() {
         return isAttacking;
@@ -74,6 +55,7 @@ public class Input {
     public static void setIsAttacking(boolean isAttacking) {
         Input.isAttacking = isAttacking;
     }
+
     public boolean isMoveUp() {
         return keyboardBitSet.get(upKey.ordinal()) && !keyboardBitSet.get(downKey.ordinal());
     }

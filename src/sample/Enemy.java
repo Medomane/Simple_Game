@@ -14,14 +14,11 @@ public class Enemy extends SpriteBase {
         this.imageView.setViewport(new Rectangle2D(0, 0, 36, 32));
         rectangle.setHeight(imageView.getViewport().getHeight());
         rectangle.setWidth(imageView.getViewport().getWidth());
-
         attackAnimation = new SpriteAnimation(imageView, Duration.millis(1000), 6, 6, 0, 0, 36, 37.5);
     }
 
     @Override
     public void checkRemovability() {
-
-        //Here we will set when the sprite remove
         if(this.health <= 0) {
             setRemovable(true);
         }

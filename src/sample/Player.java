@@ -30,8 +30,8 @@ public class Player extends SpriteBase {
         this.imageView.setViewport(new Rectangle2D(0, 0, 64, 64));
 
         //Setting animations
-        animation = new SpriteAnimation(imageView, Duration.millis(800), 9, 9, 0, 0, 64, 64);
-        attackAnimation = new SpriteAnimation(imageView, Duration.millis(1000), 8, 8, 0, 0, 64, 64);
+        animation = new SpriteAnimation(imageView, Duration.millis(500), 9, 9, 0, 0, 64, 64);
+        attackAnimation = new SpriteAnimation(imageView, Duration.millis(500), 8, 8, 0, 0, 64, 64);
         animation.setCycleCount(Animation.INDEFINITE);
         attackAnimation.setCycleCount(1);
         attackAnimation.setOnFinished(e -> Input.setIsAttacking(false)); //Everytime when cycle finished it set's the value 0
@@ -138,11 +138,10 @@ public class Player extends SpriteBase {
         }
 
     }
-
-
     @Override
     public void checkRemovability() {
-        // TODO Auto-generated method stub
+
+        if(this.health <= 0) setRemovable(true);
     }
 
 }
