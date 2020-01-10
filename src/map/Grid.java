@@ -17,7 +17,6 @@ public class Grid {
         for(int i=0;i<mapCell.length;i++){
             for(int j=0;j<mapCell[i].length;j++){
                 mapCell[i][j]=new Cell(i*64,j*64,64,64,1);
-                //i*64 j*64 64 boyutla oyuk açtığını gösteryor
             }
         }
     }

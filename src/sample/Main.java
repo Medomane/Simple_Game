@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -111,6 +112,14 @@ public class Main extends Application {
         loadGame();
         createPlayers();
         createEnemy();
+        scene.setOnKeyPressed(e->{
+            if (e.getCode() == KeyCode.R) restart();
+            if (e.getCode() == KeyCode.S) {
+                gameLoop.stop();
+                Setting st = new Setting(primaryStage,this);
+                st.Init();
+            }
+        });
 
         gameLoop = new AnimationTimer() {
             private long lastUpdate =0;
@@ -207,6 +216,7 @@ public class Main extends Application {
             enemies.clear();
             createEnemy();
         }
+        player.speed = Settings.playerSpeed;
         player.setHealth(100);
         enemy.setHealth(100);
         gameLoop.start();

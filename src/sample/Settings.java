@@ -10,7 +10,17 @@ public class Settings {
     public static final int BORDER_CONSTANT=0;
     public static final int TILES_CONSTANT=1;
 
-    public static int playerSpeed = 20;
-    public static int attackSpeed = 100;
-    public static int attackInterval = 100;
+    public static int playerSpeed = 2;
+    public static int attackSpeed = 1000;
+    public static int attackInterval = 1000;
+
+    public static boolean isLong(String value) {
+        try {
+            Long.parseLong(value);
+            return true;
+        }
+        catch (NumberFormatException e) {
+            return false;
+        }
+    }
 }
