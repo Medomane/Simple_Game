@@ -56,8 +56,6 @@ public class Main extends Application {
 
     BorderPane troot;
 
-
-
     Image playerImage;
     Image enemyImage;
     Image borderImage;
