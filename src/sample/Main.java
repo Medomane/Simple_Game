@@ -48,10 +48,6 @@ public class Main extends Application {
             {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}
     };
 
-
-
-
-
     Input input;
     Player player;
     Enemy enemy;
